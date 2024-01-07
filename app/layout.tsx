@@ -1,5 +1,6 @@
 import MainLayout from "@/components/MainLayout";
 import "./globals.css";
+import MenuContextProvider from "@/context/MenuContext";
 
 export const metadata = {
   title: "Games Global",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MainLayout>{children}</MainLayout>
+        <MenuContextProvider>
+          <MainLayout>{children}</MainLayout>
+        </MenuContextProvider>
       </body>
     </html>
   );
