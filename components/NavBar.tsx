@@ -15,6 +15,7 @@ const NavBar = () => {
         <div onClick={toggle} className="lg:hidden">
           <FaBars className="cursor-pointer hover:text-purple-600 hover:transition duration-250 ease-in-out" />
         </div>
+        <div className="text-base cursor-pointer hover:text-purple-600 hover:transition duration-250 ease-in-out">See All</div>
       </div>
 
       
