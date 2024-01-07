@@ -13,7 +13,7 @@ const NavBar = () => {
       <div className="m-4 text-2xl flex justify-between text-slate-400">
         <div>Games Global</div>
         <div onClick={toggle} className="lg:hidden">
-          <FaBars className="cursor-pointer hover:text-purple-600" />
+          <FaBars className="cursor-pointer hover:text-purple-600 hover:transition duration-250 ease-in-out" />
         </div>
       </div>
 
