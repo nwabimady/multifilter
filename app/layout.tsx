@@ -1,6 +1,7 @@
 import MainLayout from "@/components/MainLayout";
 import "./globals.css";
 import MenuContextProvider from "@/context/MenuContext";
+import Cards from "@/components/Cards";
 
 export const metadata = {
   title: "Games Global",
@@ -18,6 +19,7 @@ export default function RootLayout({
         <MenuContextProvider>
           <MainLayout>{children}</MainLayout>
         </MenuContextProvider>
+        
       </body>
     </html>
   );
