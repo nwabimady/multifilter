@@ -3,7 +3,6 @@
 import React, { useContext } from "react";
 import NavBar from "./NavBar";
 
-import { FaBars } from "react-icons/fa6";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 import { MdOutlineMonitor } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
@@ -34,6 +33,7 @@ const MainLayout = ({ children }) => {
             <FaPlus className="cursor-pointer mr-1" />
             Filter by Category
           </button>
+         
         </ul>
       </div>
       <hr />
