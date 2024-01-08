@@ -38,7 +38,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             Monitoring
           </Button>
           <FilterBySite setSite={setSite} />
-          {/* <FilterByCategory setCategory={setCategory} /> */}
+          <FilterByCategory setCategory={setCategory} />
         </ul>
       </div>
       <main>
