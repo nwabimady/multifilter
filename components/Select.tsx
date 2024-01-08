@@ -1,22 +1,24 @@
 "use client"
 
+// Select.tsx
 import React from 'react';
 
 interface SelectProps {
-  onChange: (value: string) => void;
-  options: { value: string; label: string }[];
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: { value: string; label: string; disabled?: boolean }[];
   value?: string;
+  className?: string;
 }
 
-const Select: React.FC<SelectProps> = ({ onChange, options, value }) => {
+const Select: React.FC<SelectProps> = ({ onChange, options, value, className }) => {
   return (
     <select
-      onChange={onChange}
       value={value}
-      className="text-slate-400 flex justify-center items-center px-4 h-8 m-4 border-2 rounded-full space-x-2 hover:transition duration-250 ease-in-out hover:border-purple-600 hover:text-purple-600 hover:bg-purple-50"
+      onChange={onChange}
+      className={className}
     >
       {options.map((option) => (
-        <option key={option.value} value={option.value}>
+        <option key={option.value} value={option.value} disabled={option.disabled}>
           {option.label}
         </option>
       ))}

@@ -1,20 +1,23 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import NavBar from "./NavBar";
 
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 import { MdOutlineMonitor } from "react-icons/md";
-import { FaPlus } from "react-icons/fa";
-import { MenuContext } from "@/context/MenuContext";
 import FilterBySite from "./FilterBySite";
 import Button from "./Button";
 import FilterByCategory from "./FilterByCategory";
+import Cards from "./Cards";
+interface MainLayoutProps {
+  children: ReactNode;
+}
 
-const MainLayout = ({ children }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   
   const [extractData, setExtractData] = useState(false);
   const [monitor, setMonitor] = useState(false);
+  const [site, setSite] = useState("");
   const [category, setCategory] = useState("");
 
   return (
@@ -34,13 +37,14 @@ const MainLayout = ({ children }) => {
           >
             Monitoring
           </Button>
-
-          <FilterBySite />
-
-          <FilterByCategory />
+          <FilterBySite setSite={setSite} />
+          <FilterByCategory setCategory={setCategory} />
         </ul>
       </div>
-      <main> {children} </main>
+      <main>
+        <Cards selectedSite={site} selectedCategory={category} />
+        {children}
+      </main>
     </div>
   );
 };

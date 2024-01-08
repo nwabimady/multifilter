@@ -4,7 +4,12 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import data from './data.json';
 
-function Cards() {
+interface CardsProps {
+  selectedSite: string;
+  selectedCategory: string;
+}
+
+const Cards: React.FC<CardsProps> = ({ selectedSite, selectedCategory }) => {
   const [items, setItems] = useState<{
     id: string;
     title: string;
@@ -19,10 +24,16 @@ function Cards() {
     setItems(data.data.oneClickAutomations.items);
   }, []);
 
+  // Filter items based on the selected site and category
+  const filteredItems = items.filter(item => 
+    (selectedSite === "" || item.sites.some(site => site.title === selectedSite)) &&
+    (selectedCategory === "" || item.categories.some(category => category.title === selectedCategory))
+  );
+
   return (
     <div>
       <div className="grid grid-cols-4 gap-2">
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <div key={item.id} className=" px-4 m-4 rounded-lg border-2">
             <div className='border-2 inline-block rounded-lg mt-2'>
               <Image src={item.sites[0].logoSmall2x} alt={item.sites[0].title} width={30} height={30} />
@@ -34,6 +45,6 @@ function Cards() {
       </div>
     </div>
   );
-}
+};
 
 export default Cards;

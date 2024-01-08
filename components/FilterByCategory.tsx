@@ -1,10 +1,14 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import Select from './Select';
 
-const FilterByCategory: React.FC = () => {
-  const [category, setCategory] = useState("");
+interface FilterByCategoryProps {
+    setCategory: Dispatch<SetStateAction<string>>;
+  }
+
+  const FilterByCategory: React.FC<FilterByCategoryProps> = ({ setCategory }) => {
+  const [category] = useState("");
 
   
   const categories = ["SEO", "Competitive Intelligence"];
