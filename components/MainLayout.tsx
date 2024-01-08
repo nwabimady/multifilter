@@ -22,7 +22,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div className=" w-full min-h-screen">
-      <NavBar />
+      <NavBar setSite={setSite} setCategory={setCategory} />
       <div>
         <ul className="flex flex-wrap justify-start">
           <Button
@@ -38,7 +38,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             Monitoring
           </Button>
           <FilterBySite setSite={setSite} />
-          <FilterByCategory setCategory={setCategory} />
+          {/* <FilterByCategory setCategory={setCategory} /> */}
         </ul>
       </div>
       <main>
