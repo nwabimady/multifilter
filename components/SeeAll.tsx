@@ -1,9 +1,22 @@
-import React from 'react'
+"use client"
 
-function SeeAll() {
-  return (
-    <div>SeeAll</div>
-  )
+import React from 'react';
+
+interface SeeAllProps {
+  setSite: React.Dispatch<React.SetStateAction<string[]>>;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default SeeAll
+const SeeAll: React.FC<SeeAllProps> = ({ setSite, setCategory }) => {
+  const handleClick = () => {
+    setSite([]);
+    setCategory("");
+  };
+
+  return (
+    <div onClick={handleClick}>SeeAll</div>
+  );
+};
+
+export default SeeAll;
+
