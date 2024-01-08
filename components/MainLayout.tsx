@@ -20,7 +20,7 @@ const MainLayout = ({ children }) => {
   return (
     <div className=" w-full min-h-screen">
       <NavBar />
-      <div className={`overflow-hidden transition-all duration-100 ${open ? "w-500 p-4" : "w-0"}`}>
+      <div >
         <ul className="flex flex-wrap justify-start">
           <button onClick={() => setExtractData(!extractData)} className="text-slate-400 flex justify-center items-center px-4 h-8 m-4 border-2 rounded-full space-x-2 hover:transition duration-250 ease-in-out hover:border-purple-600 hover:text-purple-600 hover:bg-purple-50">
             <HiOutlineArrowsUpDown className="cursor-pointer mr-1 " />
