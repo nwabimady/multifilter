@@ -2,15 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Select from './Select';
-import data from './data.json'; // adjust the path to your JSON file as needed
+import data from './data.json';
 
 const FilterBySite: React.FC = () => {
   const [site, setSite] = useState("");
 
-  // Extract unique site titles from the JSON data
   const siteTitles = [...new Set(data.data.oneClickAutomations.items.flatMap(item => item.sites.map(site => site.title)))];
 
-  // Convert site titles to the format expected by the Select component
   const options = siteTitles.map(title => ({ value: title, label: title }));
 
   return (
