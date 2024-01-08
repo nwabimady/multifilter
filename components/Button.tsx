@@ -1,21 +1,22 @@
 "use cient"
 
-import React from 'react';
+import React, { useState } from 'react';
+import { MdOutlineMonitor } from "react-icons/md";
 
-interface ButtonProps {
-  onClick: () => void;
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-}
+const Button = () => {
+  const [isMonitoring, setIsMonitoring] = useState(false);
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, icon }) => {
+  const handleClick = () => {
+    setIsMonitoring(!isMonitoring);
+  };
+
   return (
     <button
-      onClick={onClick}
-      className="text-slate-400 flex justify-center items-center px-4 h-8 m-4 border-2 rounded-full space-x-2 hover:transition duration-250 ease-in-out hover:border-purple-600 hover:text-purple-600 hover:bg-purple-50"
+      onClick={handleClick}
+      className={`cursor-pointer hover:transition duration-250 ease-in-out hover:border-purple-600 hover:text-purple-600 hover:bg-purple-50 mr-1 ${isMonitoring ? 'flex justify-center items-center px-4 h-8 m-4 border-2 rounded-full space-x-2 border-purple-600 text-purple-600 bg-purple-50 ' : 'text-slate-400 flex justify-center items-center px-4 h-8 m-4 border-2 rounded-full space-x-2'}`}
     >
-      {icon && <span className="cursor-pointer mr-1">{icon}</span>}
-      {children}
+      <MdOutlineMonitor />
+      Monitoring
     </button>
   );
 };
