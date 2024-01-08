@@ -23,7 +23,7 @@ function Cards() {
     <div>
       <div className="grid grid-cols-4 gap-2">
         {items.map((item) => (
-          <div key={item.id} className="px-4 m-4 rounded-lg border-2">
+          <div key={item.id} className=" px-4 m-4 rounded-lg border-2">
             <div className='border-2 inline-block rounded-lg mt-2'>
               <Image src={item.sites[0].logoSmall2x} alt={item.sites[0].title} width={30} height={30} />
             </div>
