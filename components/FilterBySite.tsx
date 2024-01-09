@@ -36,7 +36,7 @@ const FilterBySite: React.FC<FilterBySiteProps> = ({ setSite }) => {
         ))}
       </select>
       {selectedSites.map(site => (
-        <div key={site} className="px-2 py-1 border-purple-600 text-purple-600 bg-purple-50 border-2 rounded-full cursor-pointer" onClick={() => handleRemove(site)}>{site}</div>
+        <div key={site} className="text-nowrap px-2 py-1 border-purple-600 text-purple-600 bg-purple-50 border-2 rounded-full cursor-pointer" onClick={() => handleRemove(site)}>{site}</div>
       ))}
     </div>
   );
