@@ -1,11 +1,10 @@
 "use client"
 
-// ExtractDataBtn.tsx
 import React, { useState } from 'react';
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 
 interface ExtractDataBtnProps {
-  data: any[]; // replace with the type of your data
+  data: any[];
 }
 
 const ExtractDataBtn: React.FC<ExtractDataBtnProps> = ({ data }) => {
