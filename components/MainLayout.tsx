@@ -10,6 +10,7 @@ import Button from "./Button";
 import FilterByCategory from "./FilterByCategory";
 import Cards from "./Cards";
 import ExtractDataBtn from "./ExtractDataBtn";
+import ScrollableContainer from "./ScrollableContainer";
 interface MainLayoutProps {
   children: ReactNode;
 }
@@ -24,7 +25,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     <div className=" w-full min-h-screen">
       <NavBar setSite={setSite} setCategory={setCategory} />
       <div>
-        <ul className="flex flex-wrap justify-start">
+        
+        <div className="flex flex-wrap justify-start">
           <ExtractDataBtn className="text-slate-400 flex justify-center items-center px-4 h-8 m-4 border-2 rounded-full space-x-2 hover:transition duration-250 ease-in-out hover:border-purple-600 hover:text-purple-600 hover:bg-purple-50">
             <HiOutlineArrowsUpDown className="cursor-pointer mr-1" />
             Extract Data
@@ -36,7 +38,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           </Button>
           <FilterBySite setSite={setSite} />
           <FilterByCategory setCategory={setCategory} />
-        </ul>
+        </div>
+        
       </div>
       <main>
         <Cards selectedSite={site} selectedCategory={category} />
