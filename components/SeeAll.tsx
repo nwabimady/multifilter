@@ -3,20 +3,17 @@
 import React from 'react';
 
 interface SeeAllProps {
-  setSite: React.Dispatch<React.SetStateAction<string[]>>;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
+  reset: () => void;
 }
 
-const SeeAll: React.FC<SeeAllProps> = ({ setSite, setCategory }) => {
+const SeeAll: React.FC<SeeAllProps> = ({ reset }) => {
   const handleClick = () => {
-    setSite([]);
-    setCategory("");
+    reset();
   };
 
   return (
-    <div onClick={handleClick}>SeeAll</div>
+    <div onClick={handleClick}>See All</div>
   );
 };
 
 export default SeeAll;
-

@@ -22,12 +22,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [site, setSite] = useState("");
   const [category, setCategory] = useState("");
 
+  const reset = () => {
+    setSite("");
+    setCategory("");
+  };
+
   return (
-    <div className=" w-full min-h-screen">
-      <NavBar setSite={setSite} setCategory={setCategory} />
+    <div className="section">
+      <NavBar setSite={setSite} setCategory={setCategory} reset={reset} />
       <div>
         
-        <ScrollableMenu>
+        <ScrollableMenu reset={reset} >
           <ExtractDataBtn >
             <HiOutlineArrowsUpDown className="cursor-pointer mr-1" />
             Extract Data
@@ -37,7 +42,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <MdOutlineMonitor className="cursor-pointer mr-1" />
             Monitoring
           </Button>
-          <FilterBySite setSite={setSite} />
+          <FilterBySite className setSite={setSite} reset={reset} />
           <FilterByCategory setCategory={setCategory} />
         </ScrollableMenu>
       

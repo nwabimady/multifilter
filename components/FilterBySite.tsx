@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import data from './data.json';
 
@@ -36,6 +34,7 @@ const FilterBySite: React.FC<FilterBySiteProps> = ({ setSite }) => {
         ))}
       </select>
       {selectedSites.map(site => (
+        //css classes don't work with dynamic classes. Troubleshoot for later.
         <div key={site} className="text-nowrap px-2 py-1 border-purple-600 text-purple-600 bg-purple-50 border-2 rounded-full cursor-pointer" onClick={() => handleRemove(site)}>{site}</div>
       ))}
     </div>
