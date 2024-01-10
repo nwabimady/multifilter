@@ -14,14 +14,14 @@ const FilterBySite: React.FC<FilterBySiteProps> = ({ setSite }) => {
 
   const handleSelect = (site: string) => {
     setSelectedSites(prevSites => [...prevSites, site]);
-    setSite(prevSites => [...prevSites, site]);
+    setSite(site);
   };
-
+  
   const handleRemove = (site: string) => {
     setSelectedSites(prevSites => prevSites.filter(s => s !== site));
-    setSite(prevSites => prevSites.filter(s => s !== site));
+    setSite("");
   };
-
+  
   return (
     <div className="flex items-center space-x-2">
       <select
