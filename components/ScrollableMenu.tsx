@@ -3,14 +3,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Arrow from './Arrow';
 
-const ScrollableMenu: React.FC = ({ children }) => {
-  const menuRef = useRef(null);
+const ScrollableMenu: React.FC<{children?: React.ReactNode}> = ({ children }) => {
+  const menuRef = useRef<HTMLUListElement | null>(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
 
   useEffect(() => {
     const checkOverflow = () => {
-      const { scrollWidth, clientWidth } = menuRef.current;
-      setIsOverflowing(scrollWidth > clientWidth);
+      if (menuRef.current) {
+        const { scrollWidth, clientWidth } = menuRef.current;
+        setIsOverflowing(scrollWidth > clientWidth);
+      }
     };
 
     checkOverflow();
@@ -21,9 +23,11 @@ const ScrollableMenu: React.FC = ({ children }) => {
     };
   }, [children]); // Re-run the effect if children changes
 
-  const scroll = (direction) => {
-    const childWidth = menuRef.current.firstChild.offsetWidth;
-    menuRef.current.scrollLeft += childWidth * direction;
+  const scroll = (direction: number) => {
+    if (menuRef.current && menuRef.current.firstChild) {
+      const childWidth = (menuRef.current.firstChild as HTMLElement).offsetWidth;
+      menuRef.current.scrollLeft += childWidth * direction;
+    }
   };
 
   return (
@@ -38,3 +42,4 @@ const ScrollableMenu: React.FC = ({ children }) => {
 };
 
 export default ScrollableMenu;
+

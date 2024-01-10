@@ -13,14 +13,20 @@ const FilterBySite: React.FC<FilterBySiteProps> = ({ setSite }) => {
   const siteTitles = [...new Set(data.data.oneClickAutomations.items.flatMap(item => item.sites.map(site => site.title)))];
 
   const handleSelect = (site: string) => {
-    setSelectedSites(prevSites => [...prevSites, site]);
-    setSite(site);
+    setSelectedSites(prevSites => {
+      const newSites = [...prevSites, site];
+      setSite(newSites);
+      return newSites;
+    });
   };
   
   const handleRemove = (site: string) => {
-    setSelectedSites(prevSites => prevSites.filter(s => s !== site));
-    setSite("");
-  };
+    setSelectedSites(prevSites => {
+      const newSites = prevSites.filter(s => s !== site);
+      setSite(newSites);
+      return newSites;
+    });
+  };  
   
   return (
     <div className="flex items-center space-x-2">
