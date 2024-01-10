@@ -5,7 +5,7 @@ import Image from 'next/image';
 import data from './data.json';
 
 interface CardsProps {
-  selectedSite: string;
+  selectedSite: string[];
   selectedCategory: string;
 }
 
@@ -26,7 +26,7 @@ const Cards: React.FC<CardsProps> = ({ selectedSite, selectedCategory }) => {
 
   // Filter items based on the selected site and category
   const filteredItems = items.filter(item => 
-    (selectedSite === "" || item.sites.some(site => site.title === selectedSite)) &&
+    (selectedSite.length === 0 || item.sites.some(site => selectedSite.includes(site.title))) &&
     (selectedCategory === "" || item.categories.some(category => category.title === selectedCategory))
   );
 
