@@ -5,7 +5,7 @@ import Image from 'next/image';
 import data from './data.json';
 
 interface CardsProps {
-  selectedSite: string[];
+  selectedSite: string;
   selectedCategory: string;
 }
 
@@ -26,13 +26,13 @@ const Cards: React.FC<CardsProps> = ({ selectedSite, selectedCategory }) => {
 
   // Filter items based on the selected site and category
   const filteredItems = items.filter(item => 
-    (selectedSite.length === 0 || item.sites.some(site => selectedSite.includes(site.title))) &&
+    (selectedSite === "" || item.sites.some(site => site.title === selectedSite)) &&
     (selectedCategory === "" || item.categories.some(category => category.title === selectedCategory))
   );
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
         {filteredItems.map((item) => (
           <div key={item.id} className=" px-4 m-4 rounded-lg border-2">
             <div className='border-2 inline-block rounded-lg mt-2'>
