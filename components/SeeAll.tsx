@@ -17,3 +17,5 @@ const SeeAll: React.FC<SeeAllProps> = ({ reset }) => {
 };
 
 export default SeeAll;
+
+

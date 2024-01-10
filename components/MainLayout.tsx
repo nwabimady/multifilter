@@ -11,7 +11,7 @@ import FilterByCategory from "./FilterByCategory";
 import Cards from "./Cards";
 import ExtractDataBtn from "./ExtractDataBtn";
 import ScrollableMenu from "./ScrollableMenu";
-import Arrow from "./Arrow";
+
 interface MainLayoutProps {
   children: ReactNode;
 }
